@@ -11,10 +11,14 @@
     [
       "module-resolver",
       {
+        "cwd": "babelrc",
+        "root": ["./src"],
         "alias": {
           "@components": "./src/components",
-          "@utils": "./src/utils"
-        }
+          "@utils": "./src/utils",
+          "@style": "./src/static/style"
+        },
+        "extensions": [".js", ".ios.js", ".android.js"]
       }
     ]
   ]

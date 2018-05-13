@@ -7,34 +7,16 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 import { Title, Icon } from "@components"
+import s from "@style"
 
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Title title="minooori" />
+      <View style={[s.equal, s.jc_around]}>
+        <Title title="minooo" />
         <Icon name="left" size={40} color="#4F8EF7" />
-        <Text style={styles.welcome}>Hello, minooo!</Text>
+        <Text style={[s.c_main, s.border_top]}>Hello, minooo!</Text>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
-});
