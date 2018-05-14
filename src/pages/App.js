@@ -6,10 +6,14 @@
 
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, Image } from "react-native";
+import { Tag, Button, Toast } from "antd-mobile"
 import { Title, Icon } from "@components";
 import s from "@style";
 
 export default class App extends Component {
+  onClick = () => {
+    Toast.info("lalaa")
+  }
   render() {
     return (
       <View style={[s.equal]}>
@@ -18,6 +22,8 @@ export default class App extends Component {
         <Text style={[s.c_main, s.border_top]}>Hello, minooo!</Text>
         <View style={[s.w120, s.h40, s.bg_main, s.r10]} />
         <Image source={require("@images/active_full.png")} />
+        <Button type="primary" onClick={this.onClick}>你好123</Button>
+        <Tag data-seed="logId">Basic</Tag>
         <Text
           style={[
             s.font10,
@@ -29,7 +35,7 @@ export default class App extends Component {
           ]}
           numberOfLines={1}
         >
-          121234
+          min
         </Text>
       </View>
     );
