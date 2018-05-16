@@ -1,8 +1,8 @@
 const size = {};
 
 // 公用的间距样式
-// 通用的padding margin值 从5 到 30 步进为5
-for (let i = 5; i <= 30; i += 5) {
+// 通用的padding margin值 从2 到 16 步进为2
+for (let i = 2; i <= 16; i += 2) {
   size[`ptb${i}`] = { paddingVertical: i };
   size[`pt${i}`] = { paddingTop: i };
   size[`pb${i}`] = { paddingBottom: i };

@@ -18,13 +18,18 @@ YellowBox.ignoreWarnings([
   "Module RCTImageLoader"
 ]);
 
+// https://github.com/react-navigation/react-navigation/issues/4243
+HomeStack.navigationOptions = ({navigation}) => { return { tabBarVisible: navigation.state.index === 0, } }
+BuyStack.navigationOptions = ({navigation}) => { return { tabBarVisible: navigation.state.index === 0, } }
+MyStack.navigationOptions = ({navigation}) => { return { tabBarVisible: navigation.state.index === 0, } }
+
 export default createBottomTabNavigator(
   {
     Home: {
       screen: HomeStack
     },
     Buy: {
-      screen: BuyStack
+      screen: BuyStack,
     },
     My: {
       screen: MyStack
@@ -77,7 +82,7 @@ export default createBottomTabNavigator(
       tabStyle: { height: 40, marginTop: 10 },
       activeTintColor: "#45c2c8",
       inactiveTintColor: "#333"
-    }
+    },
   }
 );
 
