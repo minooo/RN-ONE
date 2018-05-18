@@ -5,7 +5,7 @@
  */
 
 import React from "react";
-import { YellowBox, Text } from "react-native";
+import { YellowBox, View, Text } from "react-native";
 import { createBottomTabNavigator } from "react-navigation";
 import { Icon } from "@components";
 import s from "@style";
@@ -19,9 +19,15 @@ YellowBox.ignoreWarnings([
 ]);
 
 // https://github.com/react-navigation/react-navigation/issues/4243
-HomeStack.navigationOptions = ({navigation}) => { return { tabBarVisible: navigation.state.index === 0, } }
-BuyStack.navigationOptions = ({navigation}) => { return { tabBarVisible: navigation.state.index === 0, } }
-MyStack.navigationOptions = ({navigation}) => { return { tabBarVisible: navigation.state.index === 0, } }
+HomeStack.navigationOptions = ({ navigation }) => {
+  return { tabBarVisible: navigation.state.index === 0 };
+};
+BuyStack.navigationOptions = ({ navigation }) => {
+  return { tabBarVisible: navigation.state.index === 0 };
+};
+MyStack.navigationOptions = ({ navigation }) => {
+  return { tabBarVisible: navigation.state.index === 0 };
+};
 
 export default createBottomTabNavigator(
   {
@@ -29,7 +35,7 @@ export default createBottomTabNavigator(
       screen: HomeStack
     },
     Buy: {
-      screen: BuyStack,
+      screen: BuyStack
     },
     My: {
       screen: MyStack
@@ -37,52 +43,38 @@ export default createBottomTabNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      showLabel: false,
-      tabBarLabel: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let navTitle;
-        if (routeName === "Home") {
-          navTitle = "首页";
-        } else if (routeName === "Buy") {
-          navTitle = "已购";
-        } else if (routeName === "My") {
-          navTitle = "我的";
-        }
-        return (
-          <Text
-            style={[
-              s.text_center,
-              s.font10,
-              s.h20,
-              { color: tintColor, lineHeight: 20 }
-            ]}
-          >
-            {navTitle}
-          </Text>
-        );
-      },
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
+        let navTitle;
         if (routeName === "Home") {
           iconName = `home${focused ? "" : "-o"}`;
+          navTitle = "首页";
         } else if (routeName === "Buy") {
           iconName = `buy${focused ? "" : "-o"}`;
+          navTitle = "已购";
         } else if (routeName === "My") {
           iconName = `me${focused ? "" : "-o"}`;
+          navTitle = "我的";
         }
 
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
-        return <Icon name={iconName} size={20} color={tintColor} />;
+        return (
+          <View style={[s.ai_center]}>
+            <Icon name={iconName} size={20} color={tintColor} />
+            <Text style={[s.font10, { color: tintColor, marginTop: 2 }]}>{navTitle}</Text>
+          </View>
+        );
       }
     }),
     tabBarOptions: {
       style: { height: 54, borderTopWidth: 0 },
-      tabStyle: { height: 40, marginTop: 10 },
+      showLabel: false,
+      // tabStyle: { height: 40, marginTop: 10 },
       activeTintColor: "#45c2c8",
       inactiveTintColor: "#333"
-    },
+    }
   }
 );
 

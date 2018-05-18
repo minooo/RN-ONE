@@ -5,12 +5,8 @@ import layout from "./1-layout"
 import size from "./2-size"
 import other from "./3-other"
 
-export default StyleSheet.create({
-  ...color,
-  ...layout,
-  ...size,
-  ...other,
-})
+export const style = { ...color, ...layout, ...size, ...other }
+export default StyleSheet.create(style)
 
 // 布局属性  文本属性  图片属性  阴影属性
 // https://facebook.github.io/react-native/docs/layout-props.html
