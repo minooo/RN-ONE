@@ -61,8 +61,14 @@ export default class extends React.Component {
         <Icon.Button onPress={() => navigation.navigate("Home")}>
           返回首页 navigate
         </Icon.Button>
+        <Icon.Button onPress={() => navigation.popToTop()}>
+          返回首页 popToTop
+        </Icon.Button>
         <Icon.Button onPress={() => navigation.push("Home")}>
           返回首页 push
+        </Icon.Button>
+        <Icon.Button onPress={() => navigation.push("BuyDetail")}>
+          回到已购想抢 navigate
         </Icon.Button>
         <Icon.Button onPress={() => navigation.goBack()}>
           返回上一层 back

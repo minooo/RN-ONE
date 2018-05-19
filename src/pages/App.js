@@ -6,7 +6,7 @@
 
 import React from "react";
 import { YellowBox, View, Text } from "react-native";
-import { createBottomTabNavigator } from "react-navigation";
+import { createBottomTabNavigator, NavigationActions } from "react-navigation";
 import { Icon } from "@components";
 import s from "@style";
 import HomeStack from "./0-home";
@@ -66,6 +66,11 @@ export default createBottomTabNavigator(
             <Text style={[s.font10, { color: tintColor, marginTop: 2 }]}>{navTitle}</Text>
           </View>
         );
+      },
+      tabBarOnPress: () => {
+        // 点击底部导航返回它所在的首页
+        // const { routeName } = navigation.state;
+        // navigation.navigate(routeName)
       }
     }),
     tabBarOptions: {
@@ -74,7 +79,7 @@ export default createBottomTabNavigator(
       // tabStyle: { height: 40, marginTop: 10 },
       activeTintColor: "#45c2c8",
       inactiveTintColor: "#333"
-    }
+    },
   }
 );
 

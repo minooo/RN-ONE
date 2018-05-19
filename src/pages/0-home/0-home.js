@@ -1,19 +1,31 @@
 import React from "react";
-import { View, Text, StatusBar } from "react-native";
+import { View, SafeAreaView, Text, TouchableHighlight } from "react-native";
 import { Icon } from "@components";
 import s, { style } from "@style";
+
+// 沉浸式状态
+// <StatusBar
+//   backgroundColor='rgba(0,0,0, 0.3)'
+//   translucent={true}
+//   hidden={false}
+//   animated={true}
+// />
 
 export default class extends React.Component {
   static navigationOptions = {
     title: "hahaah",
-    headerTitle: <Text>12345</Text>
+    headerTitle: <Text>12345</Text>,
+    header: null
   };
+
+  _onPressButton = () => {
+    console.log("You tapped the button!");
+  }
 
   render() {
     const { navigation } = this.props;
     return (
-      <View style={[s.equal, s.bg_main]}>
-        <StatusBar backgroundColor="red" barStyle="light-content" />
+      <SafeAreaView style={[s.equal, s.bg_main]}>
         <View style={[s.ml16, s.mr16, s.mt10, s.h35]}>
           <Icon.Button
             name="search"
@@ -32,7 +44,10 @@ export default class extends React.Component {
             <Text style={[s.font14]}>搜个关键词试试看</Text>
           </Icon.Button>
         </View>
-      </View>
+        <TouchableHighlight onPress={this._onPressButton} underlayColor="red">
+          <Text>Button</Text>
+        </TouchableHighlight>
+      </SafeAreaView>
     );
   }
 }
