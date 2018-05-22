@@ -29,7 +29,7 @@ MyStack.navigationOptions = ({ navigation }) => {
   return { tabBarVisible: navigation.state.index === 0 };
 };
 
-export default createBottomTabNavigator(
+const TabApp = createBottomTabNavigator(
   {
     Home: {
       screen: HomeStack
@@ -82,6 +82,14 @@ export default createBottomTabNavigator(
     },
   }
 );
+
+export default class extends React.Component {
+  render() {
+    return (
+      <TabApp />
+    )
+  }
+}
 
 // import React, { Component } from "react";
 // import { Platform, StyleSheet, Text, View, Image } from "react-native";

@@ -1,8 +1,7 @@
+import * as common from "./1-common"
+import screen from "./2-screen"
+
 export {
-  isMobile,
-  isIDNumber,
-  isName,
-  searchToObj,
-  getPathnameLast,
-  clipBigNum,
-} from "./1-common"
+  common,
+  screen,
+}
